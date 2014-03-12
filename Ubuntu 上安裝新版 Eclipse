@@ -1,0 +1,34 @@
+
+  首先，我們先到 Eclipse 官方網站上面下載最新版本的 Eclipse for Linux ，並且利用以下指令將它放到/opt/目錄下。
+  http://www.eclipse.org/downloads/
+  
+    # X.X.X = 你下載的版本號
+    $ sudo mv eclipse-SDK-X.X.X-linux-gtk.tar.gz /opt/
+  
+  然後解壓縮
+
+    $ cd /opt/
+    $ sudo tar -zxfv eclipse-SDK-X.X.X-linux-gtk.tar.gz
+  
+  再刪除tar檔
+  
+    $ sudo rm eclipse-SDK-X.X.X-linux-gtk.tar.gz
+    
+  設定捷徑，要先開一個新的檔案，叫做 eclipse.desktop
+
+    $ sudo vim /usr/share/applications/eclipse.desktop
+
+  然後把以下資訊貼上
+
+    [Desktop Entry]
+    Name=Eclipse
+    Type=Application
+    Exec=/opt/eclipse/eclipse
+    Terminal=false
+    Icon=/opt/eclipse/icon.xpm
+    Comment=Integrated Development Environment
+    NoDisplay=false
+    Categories=Development;IDE
+    Name[en]=Eclipse
+
+最後，把 eclipse.desktop 這檔案放到你的啟動列裡面就可以囉。
