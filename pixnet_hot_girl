@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!--
+  load的style
+-->
+  <style>
+  #followingBallsG{
+  position:relative;
+  width:768px;
+  height:60px;
+  }
+
+  .followingBallsG{
+  background-color:#000000;
+  position:absolute;
+  top:0;
+  left:0;
+  width:60px;
+  height:60px;
+  -moz-border-radius:30px;
+  -moz-animation-name:bounce_followingBallsG;
+  -moz-animation-duration:2.7s;
+  -moz-animation-iteration-count:infinite;
+  -moz-animation-direction:linear;
+  -webkit-border-radius:30px;
+  -webkit-animation-name:bounce_followingBallsG;
+  -webkit-animation-duration:2.7s;
+  -webkit-animation-iteration-count:infinite;
+  -webkit-animation-direction:linear;
+  -ms-border-radius:30px;
+  -ms-animation-name:bounce_followingBallsG;
+  -ms-animation-duration:2.7s;
+  -ms-animation-iteration-count:infinite;
+  -ms-animation-direction:linear;
+  -o-border-radius:30px;
+  -o-animation-name:bounce_followingBallsG;
+  -o-animation-duration:2.7s;
+  -o-animation-iteration-count:infinite;
+  -o-animation-direction:linear;
+  border-radius:30px;
+  animation-name:bounce_followingBallsG;
+  animation-duration:2.7s;
+  animation-iteration-count:infinite;
+  animation-direction:linear;
+  }
+
+  #followingBallsG_1{
+  -moz-animation-delay:0s;
+  }
+
+  #followingBallsG_1{
+  -webkit-animation-delay:0s;
+  }
+
+  #followingBallsG_1{
+  -ms-animation-delay:0s;
+  }
+
+  #followingBallsG_1{
+  -o-animation-delay:0s;
+  }
+
+  #followingBallsG_1{
+  animation-delay:0s;
+  }
+
+  #followingBallsG_2{
+  -moz-animation-delay:0.27s;
+  -webkit-animation-delay:0.27s;
+  -ms-animation-delay:0.27s;
+  -o-animation-delay:0.27s;
+  animation-delay:0.27s;
+  }
+
+  #followingBallsG_3{
+  -moz-animation-delay:0.54s;
+  -webkit-animation-delay:0.54s;
+  -ms-animation-delay:0.54s;
+  -o-animation-delay:0.54s;
+  animation-delay:0.54s;
+  }
+
+  #followingBallsG_4{
+  -moz-animation-delay:0.81s;
+  -webkit-animation-delay:0.81s;
+  -ms-animation-delay:0.81s;
+  -o-animation-delay:0.81s;
+  animation-delay:0.81s;
+  }
+
+  @-moz-keyframes bounce_followingBallsG{
+  0%{
+  left:0px;
+  background-color:#000000;
+  }
+
+  50%{
+  left:708px;
+  background-color:#FFFFFF;
+  }
+
+  100%{
+  left:0px;
+  background-color:#000000;
+  }
+
+  }
+
+  @-webkit-keyframes bounce_followingBallsG{
+  0%{
+  left:0px;
+  background-color:#000000;
+  }
+
+  50%{
+  left:708px;
+  background-color:#FFFFFF;
+  }
+
+  100%{
+  left:0px;
+  background-color:#000000;
+  }
+
+  }
+
+  @-ms-keyframes bounce_followingBallsG{
+  0%{
+  left:0px;
+  background-color:#000000;
+  }
+
+  50%{
+  left:708px;
+  background-color:#FFFFFF;
+  }
+
+  100%{
+  left:0px;
+  background-color:#000000;
+  }
+
+  }
+
+  @-o-keyframes bounce_followingBallsG{
+  0%{
+  left:0px;
+  background-color:#000000;
+  }
+
+  50%{
+  left:708px;
+  background-color:#FFFFFF;
+  }
+
+  100%{
+  left:0px;
+  background-color:#000000;
+  }
+
+  }
+
+  @keyframes bounce_followingBallsG{
+  0%{
+  left:0px;
+  background-color:#000000;
+  }
+
+  50%{
+  left:708px;
+  background-color:#FFFFFF;
+  }
+
+  100%{
+  left:0px;
+  background-color:#000000;
+  }
+
+  }
+  .loading{
+  }
+  #followingBallsG{
+    margin:250px auto;
+  }
+  </style>
+</head>
+<body>
+  <div class="btnbox"></div>
+  <div id="result"></div>
+  <div class="loading">
+    <div id="followingBallsG">
+      <div id="followingBallsG_1" class="followingBallsG"></div>
+      <div id="followingBallsG_2" class="followingBallsG"></div>
+      <div id="followingBallsG_3" class="followingBallsG"></div>
+      <div id="followingBallsG_4" class="followingBallsG"></div>
+    </div>
+  </div>
+</body>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script>
+  //進入頁面先執行afax抓jsonp
+  $.ajax({
+    url: "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22http%3A%2F%2Fwww.pixnet.net%2Falbum%2Flist%2F1%2F1%2Fhot%2F1%22%20and%0A%20%20%20%20%20%20xpath%3D'%2F%2Fdiv'&format=json&diagnostics=true&callback=csf",
+    dataType: "jsonp",
+    jsonp: "callback",
+    jsonpCallback:"csf"
+  });
+  //當頁面的按鈕被按時會去抓當頁的圖片
+  $('body').on("click", ".getpage", function(e) {
+    var i = $(this).attr('page')
+    $("#result").html("");//清空result
+    $('.loading').css({display:'block'});//開啟load
+      $.ajax({
+        url: "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22http%3A%2F%2Fwww.pixnet.net%2Falbum%2Flist%2F1%2F1%2Fhot%2F"+i+"%22%20and%0A%20%20%20%20%20%20xpath%3D'%2F%2Fdiv'&format=json&diagnostics=true&callback=csf",
+        dataType: "jsonp",
+        jsonp: "callback",
+        jsonpCallback:"csf"
+      });
+  });
+  //執行callback fun
+  function csf(data){
+    var pic_data = data.query.results.div[2].div.div[0].div[1].div[1].div[1].div[1].div[0].div //抓到放圖片資訊的div
+      ,page_data = data.query.results.div[2].div.div[0].div[1].div[1].div[1].div[1].div[1].p.a[4].href.slice(-2); //抓到頁數的值
+    if($('.getpage').length == 0){
+      for(var k = 1; k<=page_data ;k++){
+        $('.btnbox').append('<button class="getpage" page='+k+'>'+k+'頁</button>');
+      }
+    }
+
+    for(var i in pic_data){
+      var img = pic_data[i].ul.li[0].a.img.src.replace('90x90','130x130')
+        ,href = pic_data[i].ul.li[1].a.href
+        ,text = pic_data[i].ul.li[1].a.content;
+      $("#result")  //將資料的html塞進id為result的元素裡
+        .append('<a class="a_img'+i+'" href="'
+          +href+'" style="display:block;float:left;margin-left:15px;height:227px;"><img src="'
+          +img+'"/><p style="width:130px;height:60px;">'
+          +text+'</p></a>');
+    }
+    $('.loading').css({display:'none'});//關閉load
+  }
+</script>
+</html>
