@@ -48,3 +48,21 @@
   F11            全螢幕顯示
 
   A-C-Delete     啟動lxtask任務管理器
+  
+  ###自訂快捷鍵
+  
+  快捷鍵是通過openbox來實現的，在~/.config/openbox 目錄下有一個lxde-rc.xml文件，
+  其中有類似如下格式就是設置快捷方式。
+  同時也可以看到系統默認已經設置了快捷方式。
+
+```HTML
+<!-​​- Keybindings for running applications -->
+<keybind key="W-e">
+<action name="Execute">
+<startupnotify>
+<enabled>true</enabled>
+<name>PCManFM</name>
+</startupnotify>
+<command>pcmanfm</command>
+</action>
+```
