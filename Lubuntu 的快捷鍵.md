@@ -49,7 +49,7 @@
 
   A-C-Delete     啟動lxtask任務管理器
   
-  ###自訂快捷鍵
+###自訂快捷鍵
   
   快捷鍵是通過openbox來實現的，在~/.config/openbox 目錄下有一個lxde-rc.xml文件，
   其中有類似如下格式就是設置快捷方式。
