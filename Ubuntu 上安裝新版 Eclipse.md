@@ -1,14 +1,19 @@
+  #Ubuntu 上安裝新版 Eclipse
+  
   首先，我們先到 Eclipse 官方網站上面下載最新版本的 Eclipse for Linux ，並且利用以下指令將它放到/opt/目錄下。
+  
   http://www.eclipse.org/downloads/
   
+  ```bash
     # X.X.X = 你下載的版本號
     $ sudo mv eclipse-SDK-X.X.X-linux-gtk.tar.gz /opt/
+  ```
   
   然後解壓縮
-
+```bash
     $ cd /opt/
     $ sudo tar -zxfv eclipse-SDK-X.X.X-linux-gtk.tar.gz
-  
+  ```
   再刪除tar檔
   
     $ sudo rm eclipse-SDK-X.X.X-linux-gtk.tar.gz
