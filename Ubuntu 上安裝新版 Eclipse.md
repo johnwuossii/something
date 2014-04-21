@@ -13,17 +13,17 @@
 ```bash
     $ cd /opt/
     $ sudo tar -zxfv eclipse-SDK-X.X.X-linux-gtk.tar.gz
-  ```
+```
   再刪除tar檔
-  
+```bash  
     $ sudo rm eclipse-SDK-X.X.X-linux-gtk.tar.gz
-    
+```
   設定捷徑，要先開一個新的檔案，叫做 eclipse.desktop
-
+```bash
     $ sudo vim /usr/share/applications/eclipse.desktop
-
+```
   然後把以下資訊貼上
-
+```bash
     [Desktop Entry]
     Name=Eclipse
     Type=Application
@@ -34,24 +34,25 @@
     NoDisplay=false
     Categories=Development;IDE
     Name[en]=Eclipse
-
+```
 最後，把 eclipse.desktop 這檔案放到你的啟動列裡面就可以囉。
 
-*例外處理
+##例外處理
 
 假如出現以下錯誤：
 
+```bash
   A Java Runtime Environment (JRE) or Java Development Kit (JDK) 
   must be available in order to run Eclipse. No Java virtual machine 
   was found after searching the following locations: 
   /home/gaoyl/setup/eclipse/jre/bin/java 
   java in your current PATH
-  
+```
   如果通過終端，及以命令行的方式執行，則不會有問題，可以正常啟動。
   
   那請開終端做以下事情：
-  
+```bash
   $ cd <eclipse dir> 
   $ ln -sf $JRE_HOME jre
-  
+```
   目的是在eclipse安裝目錄下建立一個名稱為jre的鏈接，將其指向java安裝目錄下的jre目錄。
