@@ -15,17 +15,18 @@ export JRE_HOME=/usr/lib/jdk/jdk1.7.0_25/jre
 export PATH=$JAVA_HOME/bin:$JAVA_HOME/jre/bin:$PATH
 export CLASSPATH=$CLASSPATH:.:$JAVA_HOME/lib:$JAVA_HOME/jre/lib
  
-Step6.將系統默認的jdk修改過來，也就是java和javac指令由系統自帶的換成你自己安裝的
+*Step6* . 將系統默認的jdk修改過來，也就是java和javac指令由系統自帶的換成你自己安裝的
  
 指令：
+```bash
 sudo update-alternatives --install /usr/bin/java java /usr/lib/jdk1.7.0_25/bin/java 300
 sudo update-alternatives --install /usr/bin/javac javac /usr/lib/jdk1.7.0_25/bin/javac 300
 sudo update-alternatives --config java
 sudo update-alternatives --config javac
- 
-Step7.檢查版本，指令：java -version
+```
+Step7.檢查版本，指令：`java -version`
 如果出現以下字樣，代表順利完成安裝。
  
-java version "1.7.0_25"
-Java(TM) SE Runtime Environment (build 1.7.0_25-b15)
-Java HotSpot(TM) Server VM (build 23.25-b01, mixed mode)
+          java version "1.7.0_25"
+          Java(TM) SE Runtime Environment (build 1.7.0_25-b15)
+          Java HotSpot(TM) Server VM (build 23.25-b01, mixed mode)
