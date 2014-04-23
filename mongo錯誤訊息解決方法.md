@@ -2,19 +2,19 @@
 
 這個問題可以通過下面4個步驟來解決
 
-1)  刪除 .lock 檔案
+###1)  刪除 .lock 檔案
 
     $ sudo rm /var/lib/mongodb/mongod.lock 
 
-2)  修復 mongodb
+###2)  修復 mongodb
 
     $ mongod –repair
 
-3)  啟動 mongodb
+###3)  啟動 mongodb
 
     sudo start mongodb
 
-4) 檢查 mongodb 狀態 
+###4) 檢查 mongodb 狀態 
 
     sudo service mongodb status 
 
@@ -22,7 +22,7 @@
 
     sudo status mongodb
 
-5)  啟動 mongo client
+###5)  啟動 mongo client
 
     $ mongo
 
