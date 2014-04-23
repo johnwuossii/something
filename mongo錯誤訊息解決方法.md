@@ -1,4 +1,3 @@
-
 #failed to connect to localhost 27017
 
 這個問題可以通過下面4個步驟來解決
@@ -15,7 +14,7 @@
 
     $ sudo service mongodb start 
 
-4)  start the mongo client
+4)  啟動 mongo client
 
     $ mongo
 
