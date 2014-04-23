@@ -1,4 +1,4 @@
-#Error: couldn’t connect to server 127.0.0.1:27017 src/mongo/shell/mongo.js: exception: connect failed
+##Error: couldn’t connect to server 127.0.0.1:27017 src/mongo/shell/mongo.js: exception: connect failed
 
 這個問題可以通過下面4個步驟來解決
 
