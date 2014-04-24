@@ -27,10 +27,13 @@ HTML5 `<script>` 多了屬性 async  和 defer
 
 待 demo.js 執行完畢，網頁繪製繼續。
 
+------------------------
 
 Peter Beverloo 畫了張時序圖可供參考。
 
-![時序圖](/img/execution2.jpg)
+![時序圖](http://peter.sh/wp-content/uploads/2010/09/execution2.jpg)
+
+------------------------
 
 ##參考網址
 
