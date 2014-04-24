@@ -35,7 +35,7 @@ Peter Beverloo 畫了張時序圖可供參考。
 
 ------------------------
 
-##參考網址
+##引用網址
 
 http://blog.xuite.net/vexed/tech/61308318-script+tag+%E5%B1%AC%E6%80%A7+async+defer+%E5%B7%AE%E5%88%A5
 
