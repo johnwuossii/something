@@ -8,6 +8,7 @@ db.addUser("root","12345678")
 ```
 第二步，請把 MongoDB 給 Shutdown 後，再用下面的指令來啟動  MongoDB，如果沒有加上 "—auth” 這個參數
 
+※這是啟動驗證功能之意，如果沒有此參數就啟動Mongod，那即使設定了帳戶，也沒有效果
 ```bash
 $ sudo stop mongodb
 $ mongod --auth
