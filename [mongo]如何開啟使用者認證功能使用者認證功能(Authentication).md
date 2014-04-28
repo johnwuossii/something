@@ -18,7 +18,7 @@ MongoDB 啟動完成之後，再用 Robomongo 做查詢和修改。
 
 P.S.沒有裝的朋友請用`$ sudo apt-get install robomongo`
 
-Robomongo 設定：
+Robomongo Create 設定：
 
     Connection>
     Address: locahost : 27017
