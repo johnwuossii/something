@@ -1,4 +1,4 @@
-#[mongo]如何開啟使用者認證功能使用者認證功能(Authentication)
+##[mongo]如何開啟使用者認證功能使用者認證功能(Authentication)
 
 第一步，建立一個最高權限帳號，請用在 MongoDB Shell 執行下面這二行的指令
 
