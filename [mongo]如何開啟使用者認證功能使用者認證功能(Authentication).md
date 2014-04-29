@@ -29,5 +29,24 @@ Robomongo Create 設定：
     User Name: root
     Password: 12345678
 
+###榜定ip讓外部呼叫
+
+```bash
+$ vim /etc/mongod.conf
+```
+將 `bind_ip = 127.0.0.1` 改成 `bind_ip = '自己的ip'`
+
+最後記得重啟  
+```bash
+$ sudo restart mongodb
+```
+nodejs如果要連mongo的url寫法：
+
+    mongodb://[username:password@]host1[:port1][,host2[:port2],...[,hostN[:portN]]][/[database][?options]]
 
 
+##出處
+
+http://blog.xuite.net/zack_pan/blog/67722231-%E7%AC%AC%E4%B8%80%E6%AC%A1%E7%94%A8mongodb
+
+http://mongodb.github.io/node-mongodb-native/driver-articles/mongoclient.html#the-url-connection-format
