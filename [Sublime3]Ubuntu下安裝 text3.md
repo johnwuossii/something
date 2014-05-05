@@ -1,4 +1,4 @@
-##[Sublime]Ubuntu下安裝 text3
+##[Sublime3]Ubuntu下安裝 text3
 
 #### Ubuntu Linux 下安裝用` PPA `
 
