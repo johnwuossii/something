@@ -33,6 +33,8 @@ Sublime Text 的字型與佈景設定範本如下。
 
 Solarized 是一套講究準確用色的佈景，個人相當推薦。
 
+[Sublime Text 3 新手上路：必要的安裝、設定與基本使用教學](http://blog.miniasp.com/post/2014/01/07/Useful-tool-Sublime-Text-3-Quick-Start.aspx)
+
 ##參考網址
 
 http://blog.lyhdev.com/2013/10/sublime-text-2-ubuntu-linux-package.html
