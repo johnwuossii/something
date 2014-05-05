@@ -1,19 +1,21 @@
-##[Sublime]Ubuntu下安裝 2 & 3
+##[Sublime]Ubuntu下安裝 text3
 
 #### Ubuntu Linux 下安裝用` PPA `
 
-安裝 Sublime Text 2：
-
-    sudo add-apt-repository ppa:webupd8team/sublime-text-2 
-    sudo apt-get update
-    sudo apt-get install sublime-text
-
-＆安裝 Sublime Text 3：
+安裝 Sublime Text 3：
 
     sudo add-apt-repository ppa:webupd8team/sublime-text-3
     sudo apt-get update
     sudo apt-get install sublime-text-installer
 
+####設定terminal的sublime3
+
+    vim ~/.bashrc
+    
+然後在最下面加入以下兩行
+
+    # set sublime3
+    alias sublime3='/opt/sublime_text/sublime_text'
 
 ####調整字型和佈景
 
