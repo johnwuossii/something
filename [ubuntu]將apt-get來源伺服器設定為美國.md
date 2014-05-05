@@ -16,7 +16,7 @@ sudo cp /etc/apt/sources.list /etc/apt/sources.list.BAK
 再來，就用 vim 來開啟記錄套件儲存庫清單的 sources.list 檔案。
 
 ```bash
-sudo vi /etc/apt/sources.list 
+sudo vim /etc/apt/sources.list 
 ```
 **3.變更成其他國家的伺服器**
 
