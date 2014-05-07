@@ -34,7 +34,7 @@ Robomongo Create 設定：
 ```bash
 $ vim /etc/mongodb.conf
 ```
-將 `bind_ip = 127.0.0.1` 改成 `bind_ip = '自己的ip'`
+將 `bind_ip = 127.0.0.1` 改成 `bind_ip = 0.0.0.0`
 
 最後記得重啟  
 ```bash
