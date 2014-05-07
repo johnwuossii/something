@@ -32,7 +32,7 @@ Robomongo Create 設定：
 ###榜定ip讓外部呼叫
 
 ```bash
-$ vim /etc/mongod.conf
+$ vim /etc/mongodb.conf
 ```
 將 `bind_ip = 127.0.0.1` 改成 `bind_ip = '自己的ip'`
 
