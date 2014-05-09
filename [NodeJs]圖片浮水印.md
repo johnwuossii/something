@@ -1,35 +1,34 @@
 ##[NodeJs]圖片浮水印
 
-```js
-var spawn = require('child_process').spawn;
-
-var composite = spawn('gm',
-  [
-      'composite',
-      '-gravity',
-      'SouthEast', //右下角
-      '-dissolve',
-      '80', //溶解度,和透明度类似
-      'watermark.png',
-      'src.jpg',
-      'dest.jpg'
-  ]);
-
-composite.stdout.on('data',function(data){
-  console.log(data);
-});
-
-composite.stderr.on('data',function(data){
-  console.log(data);
-});
-
-composite.on('exit',function(code){
-  if(code != 0){
-      console.log('gm composite process exited with code ' + code);
-  }
-});
+裝`gm`就不多說了
+```
+npm install gm
 ```
 
-##轉載文章
+DEMO CODE
+
+```js
+var gm = require('gm');
+
+gm('/path/to/image.jpg')
+  .resize(353, 257)
+  .autoOrient()
+  .font('w9.ttf')
+  .fontSize(36)
+  .drawText(30, 35, '幹你娘還要下載字型檔')
+  .write('./output/output.jpg', function(err){
+    if(err){
+      console.dir(err);
+      process.exit();
+    }
+    console.dir('Success, image in ./output/output.jpg');
+    process.exit();
+  });
+```
+
+記得安裝軟體跟字型 謝謝！
+
+##參考網址
 
 http://codelife.me/blog/2012/09/20/create-warkmarked-picture-using-node-js/
+http://aheckmann.github.io/gm/
