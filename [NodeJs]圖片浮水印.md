@@ -31,4 +31,5 @@ gm('/path/to/image.jpg')
 ##參考網址
 
 http://codelife.me/blog/2012/09/20/create-warkmarked-picture-using-node-js/
+
 http://aheckmann.github.io/gm/
